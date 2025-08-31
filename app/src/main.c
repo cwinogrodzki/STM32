@@ -2,9 +2,13 @@
  * main.c
  *
  *  Created on: Apr 21 2025
- *      Author: Claire Winogrodzki
+ *  Author: Claire Winogrodzki
  */
+
 #include "stm32f0xx.h"
+#include "bsp.h"
+
+// Static functions
 static void SystemClock_Config (void);
 
 int main()
@@ -12,8 +16,19 @@ int main()
 	//Configure system clock
 	SystemClock_Config();
 
+	// Initialize LED pin
+	BSP_LED_Init();
+
+	// Turn LED On
+	BSP_LED_On();
+
+	// Turn LED Off
+	BSP_LED_Off();
+
 	while(1)
 	{
+		// Toggle LED state
+		BSP_LED_Toggle();
 	}
 }
 
